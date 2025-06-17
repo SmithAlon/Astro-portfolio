@@ -3,16 +3,18 @@ import '../styles/global.css'
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Portfolio</title>
 	</head>
 	<body>
-		<slot />
+		<main class="flex flex-col items-center justify-center min-h-screen w-full">
+			<slot />
+		</main>
 		<div class="background-pattern fixed inset-0 -z-10" role="presentation" aria-hidden="true"></div>
 
     <section class="decoration-layer" aria-hidden="true">
@@ -36,15 +38,12 @@ import '../styles/global.css'
             <div class="particle fixed w-2 h-2 rounded-full bg-white opacity-20 top-[20%] left-[45%] z-20"></div>
         </div>
     </section>
-		<main class="relative min-h-[200vh]">
-		</main>
 	</body>
 </html>
 
 <style>
     /* Base Styles */
     html, body {
-        margin: 0;
         background: #000000;
     }
 
