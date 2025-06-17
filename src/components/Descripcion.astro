@@ -1,0 +1,27 @@
+---
+---
+
+<div id="descripcion" class="flex items-center justify-center h-screen px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+    <p class="text-justify text-[#F0D338] text-base sm:text-lg md:text-xl max-w-prose">
+        Estudiante de 5to semestre en Ingeniería en Desarrollo de Software. Entusiasta de la programación y el aprendizaje continuo. Busco la oportunidad de demostrar mis habilidades como desarrollador y contribuir a proyectos innovadores.
+    </p>
+</div>
+
+<script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to("#descripcion", {
+        scrollTrigger: {
+            trigger: "#descripcion",
+            pin: true,
+            start: "top top",
+            end: "+=150%",
+            scrub: 1,
+        },
+        opacity: 1,
+        duration: 4
+    });
+</script>

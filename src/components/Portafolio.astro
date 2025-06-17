@@ -1,0 +1,129 @@
+---
+---
+
+<section class="min-h-screen p-8 max-w-6xl mx-auto">
+    <h2 id="portfolio-title" class="portfolio text-6xl font-bold text-center mb-6">PORTFOLIO</h2>
+    
+    <div class="flex flex-col justify-center items-center gap-6">
+        {/* FEQMO Project */}
+        <div id="project1" class="flex flex-col md:flex-row gap-8 items-center opacity-0">
+            <div class="w-[420px]">
+                <img src="/Page-FEQMO.png" alt="FEQMO Landing Page" class="rounded-lg w-full"/>
+            </div>
+            <div class="flex-1 flex flex-col gap-4">
+                <h3 class="text-xl font-semibold text-[#F0D338]">Landing Page FEQMO</h3>
+                <div class="flex gap-2">
+                    <img src="/icons8-astro.svg" alt="Astro" class="h-6 w-6" />
+                    <img src="/icons8-viento-de-cola-css.svg" alt="Tailwind" class="h-6 w-6" />
+                    <img src="/icons8-figura.svg" alt="Figma" class="h-6 w-6" />
+                </div>
+                <p class="text-[#F0D338] max-w-md">
+                    Landing page hecha para la empresa FEQMO. Desarrollando desde cero su diseño hasta su lanzamiento en el dominio propio.
+                </p>
+                <a href="https://landing-feqmo.vercel.app/" target="_blank" rel="noopener noreferrer" 
+                   class="text-sm text-[#F0D338] hover:underline hover:opacity-75 transition-opacity">
+                    Ver →
+                </a>
+            </div>
+        </div>
+
+        {/* Juegos.com Project */}
+        <div id="project2" class="flex flex-col md:flex-row gap-8 items-center my-8 opacity-0">
+            <div class="w-[420px]">
+                <img src="/juegos.png" alt="Juegos.com Frontend" class="rounded-lg w-full"/>
+            </div>
+            <div class="flex-1 flex flex-col gap-4">
+                <h3 class="text-xl font-semibold text-[#F0D338]">Juegos.com</h3>
+                <div class="flex gap-2">
+                    <img src="/icons8-react-24.png" alt="React" class="h-6 w-6" />
+                    <img src="/icons8-python.svg" alt="Python" class="h-6 w-6" />
+                    <img src="/icons8-viento-de-cola-css.svg" alt="tailwind" class="h-6 w-6" />
+                </div>
+                <p class="text-[#F0D338] max-w-md">
+                    Proyecto de universidad enfocado a la práctica de desarrollar y consumir APIs en frontend, utilizando React, Python Y MongoDB.
+                </p>
+                <div class="flex flex-row">
+                    <a href="https://github.com/SmithAlon/frontend-juegos" target="_blank" rel="noopener noreferrer"
+                    class="text-sm text-[#F0D338] hover:underline hover:opacity-75 transition-opacity">
+                        Frontend →
+                    </a>
+                    <a href="https://github.com/SmithAlon/API-ProjectJuegos" target="_blank" rel="noopener noreferrer"
+                    class="text-sm text-[#F0D338] hover:underline hover:opacity-75 ml-6 transition-opacity">
+                        Backend →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {/* QuickReading Project */}
+        <div id="project3" class="flex flex-col md:flex-row gap-8 items-center opacity-0">
+            <div class="w-[420px]">
+                <img src="/P-QuickReading.png" alt="QuickReading App" class="rounded-lg w-full"/>
+            </div>
+            <div class="flex-1 flex flex-col gap-4">
+                <h3 class="text-xl font-semibold text-[#F0D338]">QuickReading</h3>
+                <div class="flex gap-2">
+                    <img src="public/icons8-python.svg" alt="HTML" class="h-6 w-6" />
+                </div>
+                <p class="text-[#F0D338] max-w-md">
+                    Proyecto personal que tiene como propósito facilitar la lectura, sobretodo en personas con TDA.
+                </p>
+                <a href="https://github.com/SmithAlon/QuickReading" target="_blank" rel="noopener noreferrer"
+                   class="text-sm text-[#F0D338] hover:underline hover:opacity-75 transition-opacity">
+                    Repositorio →
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .portfolio {
+        color: transparent;
+        -webkit-text-stroke: 1px rgb(240, 211, 47);
+        text-stroke: 1px white;
+    }
+</style>
+
+<script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Pin the title
+    gsap.to(".portfolio", {
+        scrollTrigger: {
+            trigger: "#portfolio-title",
+            start: "top 15px",
+            end: "+=700",
+            scrub: true,
+            pin: true,
+        }
+    });
+
+    // Animate projects
+    const projects = ["#project1", "#project2", "#project3"];
+    
+    projects.forEach((project) => {
+        gsap.from(project, {
+            scrollTrigger: {
+                trigger: project,
+                start: "top 80%",
+                end: "top 20%",
+                toggleActions: "play none none restart", // play on enter, reverse on leave
+                onEnter: () => {
+                    gsap.to(project, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1,
+                        ease: "power2.inOut"
+                    });
+                }
+            },
+            opacity: 0,
+            y: 80
+        });
+    });
+</script>
