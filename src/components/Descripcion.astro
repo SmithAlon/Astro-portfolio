@@ -13,15 +13,15 @@
 
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.to("#descripcion", {
+    // Animación para el texto
+    gsap.from("#descripcion", {
+        opacity: 1,
+        y: 50, // Desplazamiento inicial hacia abajo
+        duration: 1,
         scrollTrigger: {
             trigger: "#descripcion",
-            pin: true,
-            start: "top top",
-            end: "+=150%",
-            scrub: 1,
-        },
-        opacity: 1,
-        duration: 4
+            pin: true, // Mantiene el elemento fijo
+            end: "bottom top", // Termina cuando el bottom del elemento llega al top
+        }
     });
 </script>
